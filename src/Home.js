@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Event from './Events';
-import Home from './Home';
+
 import Navb from './Nav';
 import eventData from './eventData';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,15 +15,9 @@ import {
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Navb />
-          
-            <Route path="/" exact component={Home} />
-            <Route path="/events" exact component={Event} />
-            <Route path="/events/:id" exact component={eventData} />
-        </div>
-      </Router>
+      <div className="container">
+      <h1>Ecell API Assignment</h1>    
+      </div>
     )
   }
 }
