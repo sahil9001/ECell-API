@@ -7,6 +7,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import './App.css'
+
 class Event extends Component {
     constructor(props){
         super(props);
@@ -34,8 +36,8 @@ class Event extends Component {
            <br></br>
            <br></br>
            
-            <h1 className="">ECell events</h1>
-            <h5>Current events:</h5>
+            <h1 className="text-light">ECell events</h1>
+            <h5 className="text-light">Current events:</h5>
             
             <RLDD
               items={items}
@@ -49,10 +51,10 @@ class Event extends Component {
     
       itemRenderer(item, index) {
         return (
-         <div class="card">
-           <div class="card-title">
-            <Link to={`/events/${item.id}`}>{index} . {item.name}</Link>
-            </div>
+         <div class=" container">
+          <li className="list-group-item list-group-item-info">
+            <Link to={`/events/${item.id}`} style={{textDecorationColor:'white'}}>{index+1} . {item.name}</Link>
+          </li>
          </div>
         );
       }

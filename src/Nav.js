@@ -13,7 +13,7 @@ class Navb extends Component {
           
         }
         return (
-            <Navbar bg="primary" variant="dark">
+            <Navbar bg="secondary" variant="dark">
                 <Navbar.Brand href="/">E-Cell Assignment</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Link to="/" style={{ textDecoration: 'none' , color:'white',marginRight:10, marginLeft:10}}>Home</Link>

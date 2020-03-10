@@ -12,8 +12,13 @@ class eventData extends Component{
         fetch('https://ecell.nitrr.ac.in/events/list/2019/?format=json')
             .then(res => res.json())
             .then((data) => {
+                if((this.props.match.params.id - 12)!==10){
                 this.setState({ items: data.data[this.props.match.params.id - 12] })
                 console.log(this.state.items)
+                }
+                else{
+                    this.setState({items:data.data[this.props.match.params.id-13]})
+                }
             })
             .catch(console.log)
     }
@@ -22,14 +27,19 @@ class eventData extends Component{
            
         return(
             
-            <div className="container mx-auto" style={{width: 30 + 'em'}}>
+            <div className="mx-auto" style={{width: 30 + 'em'}}>
                 <br></br>
                 <br></br>
-                <img className="card-img-top" src={items.icon} width="400" height="400"/>
-                <h1 className="card-title">{items.name}</h1>
-                <h4 className="card-subtitle mb-2 text-muted">{items.venue}</h4>
-                <h3>{items.date}</h3>
-                <p className="card-text">{items.details}</p>
+                <img className="card-img-top" src={items.icon_url} width="400" height="400"/>
+                <h1 className="card-title text-light">{items.name}</h1>
+                <h4 className="card-subtitle mb-2  text-light" style={{textAlign:'left'}} >Venue: {items.venue}</h4>
+                <h4 className="card-subtitle mb-2  text-light" style={{textAlign:'left'}}>Time: {items.time}</h4>
+                <h5 style={{textAlign:'left'}}> Date: {items.date}</h5>
+                <br></br>
+                <p className="card-text text-light" style={{textAlign:'left'}}>{items.details}</p>
+                <h4 className="card-text mb-2 text-light" style={{textAlign:'left'}}>Email: {items.email}</h4>
+                <h4 className="card-subtitle text-light" style={{textAlign:'left'}}>Registered: {items.no_of_ppl_registered}</h4>
+                
             </div>
          
         )
